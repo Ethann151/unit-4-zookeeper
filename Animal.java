@@ -1,45 +1,100 @@
-import java.util.Random;
+import java.util.ArrayList;
 
 public class Animal {
 
-    // creat a private instance variable to store the animal type (e.g. "Tiger" or "Bear" or any other type of animal)
-   private String animalType;
-    // create Static/class variable to track how many Animal objects have been created
-   public static int getCount() {
-   return 1;
-   }
-    // No-argument constructor:
-    // - Creates a random animal type using the randomAnimalType() method you should write in this class
-   public void randomAnimalType() {
-   
-   }
-    // Write a constructor that takes an animal type parameter
-   public Animal(String animalType) {
-   Animal a1 = new Animal("Poison Dart Frogs");
-   Animal a2 = new Animal("Boa Constrictor");
-   Animal a3 =  new Animal("Tropical Fish");
-   }
-   
-    // Create a getter/accessor method that returns the static variable that counts how many
-    // animals have been instatiated
+    // ===== Instance Variables =====
+    private String animalType;
 
+    // ===== Static Variables =====
+    private static int animalCount = 0;
 
-    // Create a getter/accessor method for returning the animal type
+    // Optional: a fixed menu of animal types to choose from
+    private static final String[] TYPES = {
+        "Lion", "Bear", "Elephant", "Giraffe", "Zebra", "Penguin", "Snake", "Monkey"
+    };
 
-    // Create a getter/ accessor method for updating the animal type
+    // ===== Constructors =====
 
-    // Creat a speak() method that uses the animal type and returns
-    // a sound based on the animal type. You can just return a String with the animal noise
+    /**
+     * No-arg constructor:
+     * REQUIRED: choose a random animal type
+     * REQUIRED: increment animalCount
+     */
+    public Animal() {
+        // TODO: set animalType to a random type from TYPES
+        // TODO: increment animalCount
+        animalType = TYPES[(int)(Math.random() * 8)];
+        animalCount++;
+    }
 
+    /**
+     * Parameterized constructor:
+     * REQUIRED: set animalType to type
+     * REQUIRED: increment animalCount
+     */
+    public Animal(String type) {
+        // TODO: set animalType
+        // TODO: increment animalCount
+        animalType = type;
+        animalCount++;
+    }
 
-    // Create the speakBackward() method that calls speak() and returns the reversed String
+    // ===== Getters / Setters =====
 
+    public String getAnimalType() {
+        return animalType;
+    }
 
-    // Create the toString() method which returns friendly description of the animal
+    // ===== Class-level getter =====
+    public static int getAnimalCount() {
+        return animalCount;
+    }
 
-    // Create a static method called "randomAnimalType" that returns a random
-    // animale type
-    // HINT: Decide how many animal types you want to be able to create, pick a random number
-    // and then use if/else/if statements to determine what the animal should say
+    // ===== Behaviors =====
 
+    /**
+     * REQUIRED: returns a sound based on animalType.
+     * You may choose your own sounds; keep it consistent.
+     */
+    public String speak() {
+        // TODO: return a sound depending on animalType
+        // Example idea:
+        // if (animalType.equals("Lion")) return "Roar!";
+        if(animalType.equals("Lion")) {
+        return "Roarr";
+        }
+        else if(animalType.equals("Bear")) {
+        return "Grr";
+        }
+        else if(animalType.equals("Elephant")) { 
+        return "Awooooo";
+        }
+        else if(animalType.equals("Giraffe")) { 
+        return "*Giraffe nopise*";
+        }
+        else if(animalType.equals("Zebra")) {
+        return "Zzzzzrt";
+        }
+        else if(animalType.equals("Penguin")) { 
+        return "Oiiii";
+        }
+        else if(animalType.equals("Snake")) {
+        return "Hissss";
+        }
+        else if(animalType.equals("Monkey")) {
+        return "Oo aaa";
+        }
+        return "";
+    }
+
+    /**
+     * OPTIONAL helper: return a random animal type from TYPES.
+     */
+    private static String randomAnimalType() {
+    return TYPES[(int)Math.random()*8];
+    }
+
+    public String toString() {
+        return animalType+" ";
+    }
 }
