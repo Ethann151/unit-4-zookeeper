@@ -32,7 +32,11 @@ public class Zoo {
     public Zoo(int numCages) {
         // TODO: instantiate cages
         // TODO: add numCages cages (each should start with at least one animal)
-      
+        cages = new ArrayList<Cage>();
+        for(int i = 0; i<numCages; i++) {
+        cages.add(new Cage());
+        }
+
     }
 
     // ===== Methods =====
@@ -114,9 +118,9 @@ public class Zoo {
     public static void main(String[] args) {
 
         // Create a zoo with default constructor
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo(3);
         System.out.println(zoo);
-        Zoo zoo2 = new Zoo();
+        Zoo zoo2 = new Zoo(3);
         System.out.println("");
         // Demonstrate howManyAnimals
         System.out.println("There are "+zoo.howManyAnimals()+" animals in this zoo.");
